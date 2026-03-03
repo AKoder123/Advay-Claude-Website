@@ -1,144 +1,137 @@
-/* ─── Advay Kumar Portfolio · app.js ─── */
+/* ─── Advay Kumar · Portfolio · app.js ─── */
 
 let slides = [];
 let current = 0;
 
-// ─── Slide renderers ───
+/* ════════════════════════════════════════
+   SLIDE RENDERERS
+════════════════════════════════════════ */
 
-function renderTitle(slide, idx) {
-  return `
-    <div class="slide-inner slide-title">
-      <div class="title-badge" data-animate data-delay="1">
-        <span class="badge-dot"></span>
-        Available for Graduate Roles · 2026
-      </div>
-      <h1 class="headline" data-animate data-delay="2">
-        <span class="grad">${slide.headline}</span>
-      </h1>
-      <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
-
-      <div class="title-stats" data-animate data-delay="4">
-        <div class="stat-chip">
-          <span class="stat-num" data-count="3.906" data-decimals="3">0</span>
-          <span class="stat-label">GPA / 4.00</span>
-        </div>
-        <div class="stat-chip">
-          <span class="stat-num" data-count="3" data-decimals="0">0</span>
-          <span class="stat-label">Dean's Honours</span>
-        </div>
-        <div class="stat-chip">
-          <span class="stat-num" data-count="85" data-decimals="0">0</span>
-          <span class="stat-label">WAM %</span>
-        </div>
-        <div class="stat-chip">
-          <span class="stat-num" data-count="1" data-decimals="0">0</span>
-          <span class="stat-label">ACM Paper</span>
-        </div>
-      </div>
-
-      <div class="title-tags" data-animate data-delay="5">
-        <span class="tag">AI / ML</span>
-        <span class="tag">Robotics</span>
-        <span class="tag">Full-Stack</span>
-        <span class="tag">Enterprise Arch</span>
-        <span class="tag">Research</span>
-        <span class="tag">Deep Learning</span>
-      </div>
-
-      <div class="scroll-hint" data-animate data-delay="6">Space or ↓ to advance</div>
-    </div>
-    <div class="title-deco" aria-hidden="true">
-      <div class="deco-ring ring-1"></div>
-      <div class="deco-ring ring-2"></div>
-      <div class="deco-ring ring-3"></div>
-    </div>
-  `;
-}
-
-function renderEducation(slide, idx) {
-  const modules = [
-    { cat: 'Engineering', items: ['Computer Organization & Programming', 'Machine Learning', 'Artificial Intelligence', 'Data Structures & Algorithms'] },
-    { cat: 'Systems', items: ['Circuits, Power & Energy', 'Networks', 'RISC-V Architecture', 'VHDL & Verilog'] },
-    { cat: 'Commerce', items: ['Strategic Management', 'Organisational Behaviour', 'Social Issues in Organising', 'Supply Chain Fundamentals'] },
-  ];
+function renderTitle(slide) {
   return `
     <div class="slide-inner">
-      <div class="label" data-animate data-delay="1">— Education</div>
-      <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
-      <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
-
-      <div class="edu-grid" data-animate data-delay="4">
-        ${modules.map((m, mi) => `
-          <div class="edu-card">
-            <div class="edu-cat">${m.cat}</div>
-            <ul class="edu-items">
-              ${m.items.map(it => `<li>${it}</li>`).join('')}
-            </ul>
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="gpa-bar-wrap" data-animate data-delay="5">
-        <div class="gpa-bar-label">
-          <span>GPA Progress</span>
-          <span class="gpa-val">3.906 / 4.00 &nbsp;·&nbsp; WAM 85.981 &nbsp;·&nbsp; Dean's Honours 2022, 2023 & 2024</span>
-        </div>
-        <div class="gpa-track">
-          <div class="gpa-fill" data-width="97.65"></div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function renderANZ(slide, idx) {
-  return `
-    <div class="slide-inner slide-exp">
-      <div class="exp-header">
-        <div>
-          <div class="label" data-animate data-delay="1">— Experience</div>
-          <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
+      <div class="title-layout">
+        <div class="title-left">
+          <div class="eyebrow" data-animate data-delay="1">Portfolio · 2026</div>
+          <h1 class="headline" data-animate data-delay="2">${slide.headline}</h1>
           <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
+          <div class="title-tags" data-animate data-delay="4">
+            <span class="ttag">AI / ML</span>
+            <span class="ttag">Robotics</span>
+            <span class="ttag">Full-Stack</span>
+            <span class="ttag">Enterprise Architecture</span>
+            <span class="ttag">Research</span>
+            <span class="ttag">Deep Learning</span>
+          </div>
         </div>
-        <div class="exp-badge" data-animate data-delay="2">
-          <div class="exp-badge-dot"></div>
-          Nov 2025 – Feb 2026
+        <div class="title-panel" data-animate data-delay="3">
+          <div class="panel-row">
+            <span class="panel-key">University</span>
+            <span class="panel-val">Monash University</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-key">GPA</span>
+            <span class="panel-val highlight" data-count="3.906" data-decimals="3">3.906</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-key">WAM</span>
+            <span class="panel-val highlight">85.981</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-key">Dean's Honours</span>
+            <span class="panel-val">2022 · 2023 · 2024</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-key">Graduation</span>
+            <span class="panel-val">2026</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-key">Published</span>
+            <span class="panel-val highlight">HRI 2025 · ACM</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-key">Citizenship</span>
+            <span class="panel-val">Australian</span>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="scroll-cue" data-animate data-delay="6">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  `;
+}
 
-      <div class="timeline" data-animate data-delay="4">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <span class="tl-text">AI-assisted reporting with Copilot & advanced prompt engineering</span>
-            <span class="tl-arrow">→</span>
-            <span class="tl-result">Consistent analytics from governance data</span>
+function renderEducation(slide) {
+  return `
+    <div class="slide-inner">
+      <div class="edu-layout">
+        <div class="edu-sidebar" data-animate data-delay="1">
+          <div class="edu-uni">Monash University</div>
+          <div class="edu-degree">
+            B.E. Electrical & Computer Systems Engineering<br>
+            + Bachelor of Commerce<br>
+            <em>Graduating 2026</em>
+          </div>
+          <div class="gpa-block" data-animate data-delay="2">
+            <div class="gpa-num" data-count="3.906" data-decimals="3">3.906</div>
+            <div class="gpa-sub">GPA / 4.00</div>
+          </div>
+          <div class="honours-list" data-animate data-delay="3">
+            <div class="honour-chip">🏅 Dean's Honours 2022</div>
+            <div class="honour-chip">🏅 Dean's Honours 2023</div>
+            <div class="honour-chip">🏅 Dean's Honours 2024</div>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <span class="tl-text">Automated BAU processes using AI</span>
-            <span class="tl-arrow">→</span>
-            <span class="tl-result tl-metric">~4 hrs/week saved</span>
+
+        <div class="edu-right" data-animate data-delay="2">
+          <div class="eyebrow">Course Modules</div>
+          <div class="edu-modules">
+            <div class="edu-module">
+              <div class="module-header">
+                <span class="module-name">Engineering Core</span>
+                <span class="module-count">4 disciplines</span>
+              </div>
+              <div class="module-items">
+                <span class="module-item">Computer Organisation & Programming</span>
+                <span class="module-item">Machine Learning</span>
+                <span class="module-item">Artificial Intelligence</span>
+                <span class="module-item">Data Structures & Algorithms</span>
+              </div>
+            </div>
+            <div class="edu-module">
+              <div class="module-header">
+                <span class="module-name">Systems & Hardware</span>
+                <span class="module-count">4 disciplines</span>
+              </div>
+              <div class="module-items">
+                <span class="module-item">Circuits, Power & Energy</span>
+                <span class="module-item">Networks</span>
+                <span class="module-item">RISC-V Architecture</span>
+                <span class="module-item">VHDL & Verilog</span>
+              </div>
+            </div>
+            <div class="edu-module">
+              <div class="module-header">
+                <span class="module-name">Commerce</span>
+                <span class="module-count">4 disciplines</span>
+              </div>
+              <div class="module-items">
+                <span class="module-item">Strategic Management</span>
+                <span class="module-item">Organisational Behaviour</span>
+                <span class="module-item">Social Issues in Organising</span>
+                <span class="module-item">Supply Chain Fundamentals</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <span class="tl-text">Built executive-facing Confluence & SharePoint artifacts using HTML/CSS/JS macros</span>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <span class="tl-text">Led governance template enhancements with risk & total cost of ownership analysis</span>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <span class="tl-text">Presented changes at Architecture Working Group forums</span>
+
+          <div class="gpa-track-wrap" data-animate data-delay="4">
+            <div class="gpa-track-label">
+              <span>GPA relative to maximum</span>
+              <span>97.65%</span>
+            </div>
+            <div class="gpa-track"><div class="gpa-fill" data-width="97.65"></div></div>
           </div>
         </div>
       </div>
@@ -146,46 +139,139 @@ function renderANZ(slide, idx) {
   `;
 }
 
-function renderResearch(slide, idx) {
+function renderANZ(slide) {
   return `
     <div class="slide-inner">
-      <div class="label" data-animate data-delay="1">— Research</div>
+      <div class="eyebrow" data-animate data-delay="1">Experience</div>
+      <div class="exp-layout">
+        <div class="exp-left" data-animate data-delay="2">
+          <h2 class="headline">ANZ Bank</h2>
+          <div class="exp-meta" style="margin-bottom:24px">
+            <div class="exp-dot"></div>
+            Enterprise Architecture · AI Automation Intern · Nov 2025 – Feb 2026
+          </div>
+
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                Built AI-assisted reporting with Copilot & prompt engineering —
+                <span class="tl-result">consistent analytics from governance data</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                Automated BAU processes using AI
+                <span class="tl-pill">~4 hrs/week saved</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                Delivered executive-facing Confluence &amp; SharePoint artifacts using HTML / CSS / JS macros
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                Led governance template enhancements incorporating risk &amp; total cost of ownership analysis
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                Presented changes at Architecture Working Group forums; collaborated across architects, grads &amp; leadership
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-right" data-animate data-delay="3">
+          <div class="impact-card">
+            <div>
+              <div class="impact-title">Efficiency Impact</div>
+              <div class="impact-metric">
+                <div class="impact-num" data-count="4" data-decimals="0">4</div>
+                <div class="impact-label">hours saved per week via AI automation</div>
+              </div>
+            </div>
+            <div>
+              <div class="impact-title">Stakeholder Reach</div>
+              <div class="impact-metric">
+                <div class="impact-label" style="font-size:0.9rem; color:rgba(255,255,255,0.7); line-height:1.5">
+                  Executive-visible documentation deployed across enterprise governance platforms
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="impact-title">Tools & Stack</div>
+              <div class="used-strip">
+                <span class="used-chip">Copilot</span>
+                <span class="used-chip">Prompt Engineering</span>
+                <span class="used-chip">HTML / CSS / JS</span>
+                <span class="used-chip">Confluence</span>
+                <span class="used-chip">SharePoint</span>
+                <span class="used-chip">Jira</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderResearch(slide) {
+  return `
+    <div class="slide-inner">
+      <div class="eyebrow" data-animate data-delay="1">Research · Monash Robotics</div>
       <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
       <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
 
-      <div class="research-grid" data-animate data-delay="4">
+      <div class="research-layout" data-animate data-delay="4">
         <div class="pub-card">
-          <div class="pub-badge">Published · HRI 2025 · ACM</div>
-          <div class="pub-title">VR &amp; Mixed Reality for Remote Warehouse Error Correction</div>
-          <div class="pub-meta">Amazon-Funded · Monash Robotics Lab</div>
+          <div class="pub-venue">
+            <div class="pub-venue-dot"></div>
+            Published · HRI 2025 · ACM Digital Library
+          </div>
+          <div class="pub-title">
+            VR &amp; Mixed Reality for Remote Warehouse Error Correction — Amazon-Funded Study
+          </div>
+          <div class="pub-sponsor">📦 Amazon-funded &nbsp;·&nbsp; Monash Robotics Lab &nbsp;·&nbsp; Feb 2024 – Oct 2025</div>
           <a class="pub-link" href="https://dl.acm.org/doi/10.5555/3721488.3721553" target="_blank" rel="noopener">
-            View on ACM dl ↗
+            View on ACM Digital Library ↗
           </a>
         </div>
 
-        <div class="tech-stack-card">
-          <div class="tech-label">Tech Stack</div>
-          <div class="tech-tags">
-            <span class="tech-tag">ROS</span>
-            <span class="tech-tag">Unity / C#</span>
-            <span class="tech-tag">Meta Quest 3</span>
-            <span class="tech-tag">MoveIt</span>
-            <span class="tech-tag">ROS TCP Endpoint</span>
-            <span class="tech-tag">Franka Panda Arm</span>
+        <div class="tech-card">
+          <div>
+            <div class="tech-section-title">Technology Stack</div>
+            <div class="tech-tags">
+              <span class="tech-tag">ROS</span>
+              <span class="tech-tag">Unity / C#</span>
+              <span class="tech-tag">Meta Quest 3</span>
+              <span class="tech-tag">MoveIt</span>
+              <span class="tech-tag">ROS TCP Endpoint</span>
+              <span class="tech-tag">Franka Panda Arm</span>
+              <span class="tech-tag">Python</span>
+            </div>
           </div>
-          <div class="tech-label" style="margin-top:20px">Key Deliverables</div>
-          <div class="deliverable-list">
-            <div class="deliverable">
-              <div class="del-icon" style="background:rgba(0,212,255,0.12); color:var(--accent)">✓</div>
-              <span>Full paper at prestigious HRI 2025 conference</span>
-            </div>
-            <div class="deliverable">
-              <div class="del-icon" style="background:rgba(124,58,237,0.12); color:#a78bfa">✓</div>
-              <span>Remote VR + MR robot arm control system</span>
-            </div>
-            <div class="deliverable">
-              <div class="del-icon" style="background:rgba(16,185,129,0.12); color:var(--accent3)">✓</div>
-              <span>Formal user study design & execution</span>
+          <div>
+            <div class="tech-section-title">Key Deliverables</div>
+            <div class="deliverable-list">
+              <div class="deliverable">
+                <div class="del-check" style="background:#dbeafe; color:#1d4ed8">✓</div>
+                Full paper published at HRI 2025 — top-tier Human-Robot Interaction venue
+              </div>
+              <div class="deliverable">
+                <div class="del-check" style="background:#d1fae5; color:#059669">✓</div>
+                Remote VR + Mixed Reality robot arm error correction system
+              </div>
+              <div class="deliverable">
+                <div class="del-check" style="background:#fef3c7; color:#d97706">✓</div>
+                Formal user study design, execution, and analysis
+              </div>
             </div>
           </div>
         </div>
@@ -194,156 +280,222 @@ function renderResearch(slide, idx) {
   `;
 }
 
-function renderDeepNeuron(slide, idx) {
-  const roles = [
-    { icon: '◉', title: 'Led AI/ML/DL projects', sub: 'Technical lead across multiple concurrent projects' },
-    { icon: '◈', title: 'Recruited & mentored', sub: 'Built and supported the AI/DL team' },
-    { icon: '⊕', title: 'University & industry liaison', sub: 'Coordinated with professors & corporates' },
-    { icon: '◎', title: 'Evaluated new projects', sub: 'Sourced and scoped future team initiatives' },
-  ];
+function renderDeepNeuron(slide) {
   return `
     <div class="slide-inner">
-      <div class="label" data-animate data-delay="1">— Leadership</div>
+      <div class="eyebrow" data-animate data-delay="1">Leadership · Monash DeepNeuron</div>
       <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
-      <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
+      <p class="subheadline" data-animate data-delay="3">AI/DL Lead · June 2023 – July 2024</p>
 
-      <div class="role-grid" data-animate data-delay="4">
-        ${roles.map((r, i) => `
+      <div class="dn-layout" data-animate data-delay="4">
+        <div class="role-cards">
           <div class="role-card">
-            <div class="role-icon">${r.icon}</div>
-            <div class="role-info">
-              <div class="role-title">${r.title}</div>
-              <div class="role-sub">${r.sub}</div>
+            <div class="role-icon-wrap">⬡</div>
+            <div>
+              <div class="role-title">Technical Leadership</div>
+              <div class="role-sub">Led AI, Machine Learning & Deep Learning projects across the team pipeline</div>
             </div>
           </div>
-        `).join('')}
+          <div class="role-card">
+            <div class="role-icon-wrap">◎</div>
+            <div>
+              <div class="role-title">Team Building</div>
+              <div class="role-sub">Recruited, onboarded, and mentored AI/DL engineers and researchers</div>
+            </div>
+          </div>
+          <div class="role-card">
+            <div class="role-icon-wrap">⊕</div>
+            <div>
+              <div class="role-title">External Relations</div>
+              <div class="role-sub">Collaborated with university professors, industry partners & corporate sponsors</div>
+            </div>
+          </div>
+          <div class="role-card">
+            <div class="role-icon-wrap">◈</div>
+            <div>
+              <div class="role-title">Project Sourcing</div>
+              <div class="role-sub">Evaluated and scoped future projects; maintained the team's technical roadmap</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="tech-section-title" style="color:var(--slate-400); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px;">Team History</div>
+          <div class="dn-timeline">
+            <div class="dn-tl-item">
+              <div class="dn-tl-dot">01</div>
+              <div class="dn-tl-content">
+                <div class="dn-tl-label">Research Intern — Monash Robotics</div>
+                <div class="dn-tl-date">Nov 2023 – Feb 2024</div>
+              </div>
+            </div>
+            <div class="dn-tl-item">
+              <div class="dn-tl-dot">02</div>
+              <div class="dn-tl-content">
+                <div class="dn-tl-label">Bio-Acoustics Monitoring Model</div>
+                <div class="dn-tl-date">Jun – Nov 2022 &nbsp;·&nbsp; LSTM · 80% accuracy · 24× faster</div>
+              </div>
+            </div>
+            <div class="dn-tl-item">
+              <div class="dn-tl-dot">03</div>
+              <div class="dn-tl-content">
+                <div class="dn-tl-label">Microfluidics Analysis — Monash IVF</div>
+                <div class="dn-tl-date">Jan – Jun 2023 &nbsp;·&nbsp; ResNet-34 · 90% accuracy</div>
+              </div>
+            </div>
+            <div class="dn-tl-item">
+              <div class="dn-tl-dot">04</div>
+              <div class="dn-tl-content">
+                <div class="dn-tl-label">AI/DL Lead — DeepNeuron</div>
+                <div class="dn-tl-date">Jun 2023 – Jul 2024</div>
+              </div>
+            </div>
+            <div class="dn-tl-item">
+              <div class="dn-tl-dot">05</div>
+              <div class="dn-tl-content">
+                <div class="dn-tl-label">Research Assistant — Monash Robotics</div>
+                <div class="dn-tl-date">Feb 2024 – Oct 2025 &nbsp;·&nbsp; HRI 2025 Paper</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;
 }
 
-function renderResearchProjects(slide, idx) {
+function renderProjects(slide) {
   return `
     <div class="slide-inner">
-      <div class="label" data-animate data-delay="1">— Research Projects</div>
+      <div class="eyebrow" data-animate data-delay="1">Research Projects</div>
       <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
 
-      <div class="project-compare" data-animate data-delay="3">
-        <div class="project-card left-project">
-          <div class="proj-accent" style="background:var(--accent)"></div>
-          <div class="proj-header">
-            <span class="proj-tag" style="color:var(--accent); border-color:rgba(0,212,255,0.3)">Medical AI</span>
-            <span class="proj-year">Jan – Jun 2023</span>
-          </div>
-          <div class="proj-title">${slide.left?.title || ''}</div>
-          <div class="metric-row">
-            <div class="metric">
-              <div class="metric-val" style="color:var(--accent)">90%</div>
-              <div class="metric-label">Accuracy</div>
+      <div class="projects-grid" data-animate data-delay="3">
+        <div class="project-card">
+          <div class="project-stripe" style="background: linear-gradient(90deg, var(--blue), var(--blue-light))"></div>
+          <div class="proj-cat" style="background:#dbeafe; color:var(--blue);">Medical AI</div>
+          <div class="proj-title">Microfluidics Analysis — Sperm Cell Selection</div>
+          <div class="proj-metrics">
+            <div class="proj-metric">
+              <div class="proj-metric-val" style="color:var(--blue)">90%</div>
+              <div class="proj-metric-label">Classification Accuracy</div>
             </div>
-            <div class="metric">
-              <div class="metric-val" style="color:var(--accent)">2026</div>
-              <div class="metric-label">Planned IVF Adoption</div>
+            <div class="proj-metric">
+              <div class="proj-metric-val" style="color:var(--blue)">2026</div>
+              <div class="proj-metric-label">Planned Clinical Adoption</div>
             </div>
           </div>
-          <div class="proj-desc">Optimised ResNet-34 for sperm cell selection — results may inform clinical IVF treatment at Monash IVF.</div>
+          <div class="proj-desc">
+            Optimised ResNet-34 model for sperm cell analysis and selection. Research may be adopted by Monash IVF from 2026 to improve IVF treatment outcomes.
+          </div>
         </div>
 
-        <div class="project-divider">
-          <div class="vs-line"></div>
-          <div class="vs-circle">VS</div>
-          <div class="vs-line"></div>
-        </div>
-
-        <div class="project-card right-project">
-          <div class="proj-accent" style="background:var(--accent3)"></div>
-          <div class="proj-header">
-            <span class="proj-tag" style="color:var(--accent3); border-color:rgba(16,185,129,0.3)">Ecology AI</span>
-            <span class="proj-year">Jun – Nov 2022</span>
-          </div>
-          <div class="proj-title">${slide.right?.title || ''}</div>
-          <div class="metric-row">
-            <div class="metric">
-              <div class="metric-val" style="color:var(--accent3)">80%</div>
-              <div class="metric-label">Accuracy</div>
+        <div class="project-card">
+          <div class="project-stripe" style="background: linear-gradient(90deg, var(--green), #34d399)"></div>
+          <div class="proj-cat" style="background:#d1fae5; color:var(--green);">Ecology AI</div>
+          <div class="proj-title">Bio-Acoustics Monitoring — Endangered Species Classification</div>
+          <div class="proj-metrics">
+            <div class="proj-metric">
+              <div class="proj-metric-val" style="color:var(--green)">80%</div>
+              <div class="proj-metric-label">Classification Accuracy</div>
             </div>
-            <div class="metric">
-              <div class="metric-val" style="color:var(--accent3)">24×</div>
-              <div class="metric-label">Faster Analysis</div>
+            <div class="proj-metric">
+              <div class="proj-metric-val" style="color:var(--green)">24×</div>
+              <div class="proj-metric-label">Analysis Speed-Up</div>
             </div>
           </div>
-          <div class="proj-desc">Multi-head 2-way LSTM classifying endangered bird species — cut analysis from 12 hrs to 30 mins.</div>
+          <div class="proj-desc">
+            Multi-head 2-way LSTM for audio classification of endangered bird species. Reduced researcher analysis time from 12 hours to 30 minutes.
+          </div>
         </div>
       </div>
     </div>
   `;
 }
 
-function renderAwards(slide, idx) {
-  const awards = [
-    { icon: '🏆', title: 'State Finalist', body: 'AIIA Innovation Awards 2022 — Computer Vision / Mask Detection', color: 'rgba(0,212,255,0.1)', border: 'rgba(0,212,255,0.25)' },
-    { icon: '🛡️', title: 'ADF Future Innovators Award', body: 'Australian Defence Force 2021 — Face Mask Detection System', color: 'rgba(124,58,237,0.1)', border: 'rgba(124,58,237,0.25)' },
-    { icon: '🎓', title: 'Motorola Leader Scholarship', body: '2023 — Motorola Solutions Scholarship for Excellence', color: 'rgba(16,185,129,0.1)', border: 'rgba(16,185,129,0.25)' },
-    { icon: '📜', title: 'Access Scholarship', body: 'Achieving & Achieving Potential 2022', color: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.25)' },
-    { icon: '🏛️', title: 'Parliamentary AI Presenter', body: 'House Standing Committee on Education — GenAI Inquiry 2023', color: 'rgba(239,68,68,0.1)', border: 'rgba(239,68,68,0.25)' },
-  ];
+function renderAwards(slide) {
   return `
     <div class="slide-inner">
-      <div class="label" data-animate data-delay="1">— Recognition</div>
-      <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
-      <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
-
-      <div class="awards-grid" data-animate data-delay="4">
-        ${awards.map((a) => `
-          <div class="award-card" style="--aw-bg:${a.color}; --aw-border:${a.border}">
-            <div class="award-icon">${a.icon}</div>
-            <div class="award-body">
-              <div class="award-title">${a.title}</div>
-              <div class="award-body-text">${a.body}</div>
+      <div class="eyebrow" data-animate data-delay="1">Awards &amp; Recognition</div>
+      <div class="awards-layout">
+        <div class="awards-left" data-animate data-delay="2">
+          <div class="parl-callout">
+            <div class="parl-icon">🏛️</div>
+            <div class="parl-title">Parliamentary AI Presenter</div>
+            <div class="parl-body">
+              Hosted and presented during a site visit by the House Standing Committee on Education, Employment and Training for the Parliamentary Inquiry into Generative AI in Education. November 2023.
             </div>
           </div>
-        `).join('')}
+        </div>
+
+        <div class="awards-list" data-animate data-delay="3">
+          <div class="award-card">
+            <div class="award-emoji">🏆</div>
+            <div>
+              <div class="award-title">State Finalist — AIIA Innovation Awards</div>
+              <div class="award-sub">2022 · Computer Vision / Mask Detection System</div>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-emoji">🛡️</div>
+            <div>
+              <div class="award-title">ADF Future Innovators Award</div>
+              <div class="award-sub">Australian Defence Force 2021 · Face Mask Detection System</div>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-emoji">🎓</div>
+            <div>
+              <div class="award-title">Motorola Solutions Leader Scholarship</div>
+              <div class="award-sub">2023 · Awarded for academic leadership and achievement</div>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-emoji">📜</div>
+            <div>
+              <div class="award-title">Achieving &amp; Achieving Potential Access Scholarship</div>
+              <div class="award-sub">2022 · Monash University</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;
 }
 
-function renderSkills(slide, idx) {
-  const categories = [
+function renderSkills(slide) {
+  const cats = [
     {
       name: 'Languages',
-      color: 'var(--accent)',
-      items: ['Python', 'C++', 'C', 'C#', 'HTML / CSS', 'SQL', 'MATLAB', 'Verilog', 'VHDL', 'R', 'Flutter / Dart', 'Assembly RISC-V']
+      items: ['Python', 'C++', 'C', 'C#', 'HTML / CSS', 'SQL', 'MATLAB', 'Verilog', 'VHDL', 'R', 'Flutter / Dart', 'Assembly RISC-V'],
     },
     {
-      name: 'Frameworks & Tools',
-      color: '#a78bfa',
-      items: ['ROS', 'Unity', 'MoveIt', 'Git', 'MongoDB', 'Android Studio', 'PyCharm', 'Jupyter', 'VSCode', 'LTspice', 'Meta Quest Dev Hub']
+      name: 'Frameworks & Systems',
+      items: ['ROS', 'Unity', 'MoveIt', 'Git', 'MongoDB', 'Android Studio', 'PyCharm', 'Jupyter', 'VSCode', 'LTspice', 'PowerWorld', 'Meta Quest Dev Hub'],
     },
     {
-      name: 'Domains',
-      color: 'var(--accent3)',
-      items: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'Robotics', 'VR / MR', 'Prompt Engineering', 'Enterprise Architecture', 'Research']
+      name: 'AI & Engineering',
+      items: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'Robotics', 'VR / MR', 'Prompt Engineering', 'Enterprise Architecture', 'Research'],
     },
     {
-      name: 'Management',
-      color: '#fbbf24',
-      items: ['Jira', 'Confluence', 'SharePoint', 'Kanban', 'Gantt Charts', 'Architecture Working Groups']
+      name: 'Project Management',
+      items: ['Jira', 'Confluence', 'SharePoint', 'Kanban', 'Gantt Charts', 'Working Groups', 'Workflow Optimisation'],
     },
   ];
   return `
     <div class="slide-inner">
-      <div class="label" data-animate data-delay="1">— Technical Stack</div>
+      <div class="eyebrow" data-animate data-delay="1">Technical Skills</div>
       <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
 
-      <div class="skills-grid" data-animate data-delay="3">
-        ${categories.map((cat) => `
-          <div class="skill-category">
-            <div class="cat-name" style="color:${cat.color}">${cat.name}</div>
+      <div class="skills-layout" data-animate data-delay="3">
+        ${cats.map(cat => `
+          <div class="skill-cat">
+            <div class="skill-cat-header">
+              <span class="skill-cat-name">${cat.name}</span>
+              <span class="skill-cat-count">${cat.items.length} skills</span>
+            </div>
             <div class="skill-chips">
-              ${cat.items.map(item => `
-                <span class="skill-chip" style="--chip-color:${cat.color}">${item}</span>
-              `).join('')}
+              ${cat.items.map(item => `<span class="skill-chip">${item}</span>`).join('')}
             </div>
           </div>
         `).join('')}
@@ -352,79 +504,95 @@ function renderSkills(slide, idx) {
   `;
 }
 
-function renderClosing(slide, idx) {
+function renderClosing(slide) {
   return `
-    <div class="slide-inner slide-closing">
-      <div class="label" data-animate data-delay="1">— Let's Connect</div>
-      <h2 class="headline" data-animate data-delay="2"><span class="grad">${slide.headline}</span></h2>
-      <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
+    <div class="slide-inner">
+      <div class="closing-layout">
+        <div class="closing-left">
+          <div class="eyebrow" data-animate data-delay="1">Get in Touch</div>
+          <h2 class="headline" data-animate data-delay="2">${slide.headline}</h2>
+          <p class="subheadline" data-animate data-delay="3">${slide.subheadline || ''}</p>
 
-      <div class="contact-grid" data-animate data-delay="4">
-        <a class="contact-card" href="mailto:advaykumar2004@gmail.com">
-          <div class="contact-icon" style="background:rgba(0,212,255,0.1); border-color:rgba(0,212,255,0.25)">✉</div>
-          <div class="contact-body">
-            <div class="contact-type">Email</div>
-            <div class="contact-val">advaykumar2004@gmail.com</div>
+          <div class="contact-grid" data-animate data-delay="4">
+            <a class="contact-card" href="mailto:advaykumar2004@gmail.com">
+              <div class="contact-icon-wrap">✉</div>
+              <div>
+                <div class="contact-type">Email</div>
+                <div class="contact-val">advaykumar2004@gmail.com</div>
+              </div>
+            </a>
+            <a class="contact-card" href="tel:+61410377289">
+              <div class="contact-icon-wrap">✆</div>
+              <div>
+                <div class="contact-type">Phone</div>
+                <div class="contact-val">(+61) 410 377 289</div>
+              </div>
+            </a>
+            <a class="contact-card" href="https://linkedin.com/in/advay-kumar" target="_blank" rel="noopener">
+              <div class="contact-icon-wrap">in</div>
+              <div>
+                <div class="contact-type">LinkedIn</div>
+                <div class="contact-val">Advay Kumar</div>
+              </div>
+            </a>
+            <a class="contact-card" href="https://github.com/AKoder123" target="_blank" rel="noopener">
+              <div class="contact-icon-wrap">⌥</div>
+              <div>
+                <div class="contact-type">GitHub</div>
+                <div class="contact-val">AKoder123</div>
+              </div>
+            </a>
           </div>
-          <div class="contact-arrow">↗</div>
-        </a>
-        <a class="contact-card" href="tel:+61410377289">
-          <div class="contact-icon" style="background:rgba(124,58,237,0.1); border-color:rgba(124,58,237,0.25)">✆</div>
-          <div class="contact-body">
-            <div class="contact-type">Phone</div>
-            <div class="contact-val">(+61) 410 377 289</div>
-          </div>
-          <div class="contact-arrow">↗</div>
-        </a>
-        <a class="contact-card" href="https://linkedin.com/in/advay-kumar" target="_blank" rel="noopener">
-          <div class="contact-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.25)">in</div>
-          <div class="contact-body">
-            <div class="contact-type">LinkedIn</div>
-            <div class="contact-val">Advay Kumar</div>
-          </div>
-          <div class="contact-arrow">↗</div>
-        </a>
-        <a class="contact-card" href="https://github.com/AKoder123" target="_blank" rel="noopener">
-          <div class="contact-icon" style="background:rgba(251,191,36,0.1); border-color:rgba(251,191,36,0.25)">⌥</div>
-          <div class="contact-body">
-            <div class="contact-type">GitHub</div>
-            <div class="contact-val">AKoder123</div>
-          </div>
-          <div class="contact-arrow">↗</div>
-        </a>
-      </div>
 
-      ${slide.note ? `
-        <div class="website-pill" data-animate data-delay="5">
-          <span class="pulse-dot"></span>
-          <a href="${slide.note}" target="_blank" rel="noopener">${slide.note}</a>
+          <div class="website-block" data-animate data-delay="5">
+            <div class="ws-dot"></div>
+            <div class="ws-url">
+              <a href="https://akoder123.github.io/Advay-Personal-Website/" target="_blank" rel="noopener">
+                akoder123.github.io/Advay-Personal-Website/
+              </a>
+            </div>
+          </div>
         </div>
-      ` : ''}
+
+        <div class="closing-right" data-animate data-delay="4">
+          <div class="avail-card">
+            <div class="avail-badge">
+              <div class="avail-dot"></div>
+              Available 2026
+            </div>
+            <div class="avail-heading">Open to graduate roles, research collaborations &amp; meaningful projects.</div>
+            <div class="avail-body">
+              Graduating Monash University in 2026 with a dual degree in Electrical &amp; Computer Systems Engineering and Commerce. Strong background in AI/ML, robotics, and enterprise technology with published research and industry experience at ANZ Bank.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `;
 }
 
-// ─── Route slides ───
+/* ════════════════════════════════════════
+   ROUTE SLIDES
+════════════════════════════════════════ */
 function renderSlide(slide, i) {
-  const n = i + 1;
-  if (slide.type === 'title')      return renderTitle(slide, n);
-  if (slide.type === 'closing')    return renderClosing(slide, n);
-  if (slide.type === 'beforeAfter') return renderResearchProjects(slide, n);
-  if (slide.type === 'section')    return renderEducation(slide, n);
-  // content slides routed by headline keyword
-  if (slide.headline.includes('ANZ'))        return renderANZ(slide, n);
-  if (slide.headline.includes('Robotics'))   return renderResearch(slide, n);
-  if (slide.headline.includes('DeepNeuron')) return renderDeepNeuron(slide, n);
-  if (slide.headline.includes('Awards'))     return renderAwards(slide, n);
-  if (slide.headline.includes('Skills'))     return renderSkills(slide, n);
-  return renderANZ(slide, n);
+  if (slide.type === 'title')       return renderTitle(slide);
+  if (slide.type === 'closing')     return renderClosing(slide);
+  if (slide.type === 'beforeAfter') return renderProjects(slide);
+  if (slide.type === 'section')     return renderEducation(slide);
+  if (slide.headline.includes('ANZ'))        return renderANZ(slide);
+  if (slide.headline.includes('Robotics'))   return renderResearch(slide);
+  if (slide.headline.includes('DeepNeuron')) return renderDeepNeuron(slide);
+  if (slide.headline.includes('Awards'))     return renderAwards(slide);
+  if (slide.headline.includes('Skills'))     return renderSkills(slide);
+  return renderEducation(slide);
 }
 
-// ─── Build deck ───
+/* ════════════════════════════════════════
+   BUILD
+════════════════════════════════════════ */
 function buildDeck(data) {
   slides = data.slides;
   const deck = document.getElementById('deck');
-  const total = slides.length;
 
   deck.innerHTML = slides.map((slide, i) => `
     <section class="slide slide-${slide.type}" id="slide-${i}" data-index="${i}">
@@ -432,28 +600,30 @@ function buildDeck(data) {
     </section>
   `).join('');
 
-  document.querySelector('.logo').textContent = 'AK';
-  document.title = data.meta?.title || 'Advay Kumar';
-  document.getElementById('slideCounter').textContent = `01 / ${String(total).padStart(2,'0')}`;
+  document.getElementById('slideCounter').textContent =
+    `01 / ${String(slides.length).padStart(2, '0')}`;
 
-  initObserver(total);
+  initObserver();
   initKeyboard();
   initNavbarOffset();
   setupPdfExport();
 
+  // Trigger first slide
   setTimeout(() => {
     const first = document.getElementById('slide-0');
     if (first) { first.classList.add('is-active'); triggerEffects(first); }
   }, 120);
 }
 
-// ─── Per-slide JS effects ───
+/* ════════════════════════════════════════
+   PER-SLIDE JS EFFECTS
+════════════════════════════════════════ */
 function triggerEffects(el) {
   // Stat counters
   el.querySelectorAll('[data-count]').forEach(num => {
     const target = parseFloat(num.dataset.count);
     const dec = parseInt(num.dataset.decimals || '0', 10);
-    const dur = 1300;
+    const dur = 1200;
     const t0 = performance.now();
     const tick = now => {
       const p = Math.min((now - t0) / dur, 1);
@@ -461,39 +631,39 @@ function triggerEffects(el) {
       num.textContent = (target * ease).toFixed(dec);
       if (p < 1) requestAnimationFrame(tick);
     };
-    setTimeout(() => requestAnimationFrame(tick), 500);
+    setTimeout(() => requestAnimationFrame(tick), 450);
   });
 
   // GPA bar
   el.querySelectorAll('.gpa-fill[data-width]').forEach(bar => {
-    setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 700);
+    setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 650);
   });
 
   // Stagger skill chips
   el.querySelectorAll('.skill-chip').forEach((chip, i) => {
-    chip.style.cssText = 'opacity:0;transform:scale(0.8)';
+    chip.style.cssText = 'opacity:0;transform:scale(0.85)';
     setTimeout(() => {
-      chip.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      chip.style.transition = 'opacity 0.3s, transform 0.3s';
       chip.style.opacity = '1'; chip.style.transform = 'scale(1)';
-    }, 350 + i * 38);
+    }, 300 + i * 35);
   });
 
-  // Stagger awards
+  // Stagger award cards (horizontal slide)
   el.querySelectorAll('.award-card').forEach((card, i) => {
-    card.style.cssText = 'opacity:0;transform:translateX(-14px)';
+    card.style.cssText = 'opacity:0;transform:translateX(-12px)';
     setTimeout(() => {
       card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
       card.style.opacity = '1'; card.style.transform = 'none';
-    }, 280 + i * 85);
+    }, 250 + i * 80);
   });
 
   // Stagger timeline items
   el.querySelectorAll('.tl-item').forEach((item, i) => {
-    item.style.cssText = 'opacity:0;transform:translateX(-10px)';
+    item.style.cssText = 'opacity:0;transform:translateY(8px)';
     setTimeout(() => {
       item.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
       item.style.opacity = '1'; item.style.transform = 'none';
-    }, 380 + i * 80);
+    }, 350 + i * 75);
   });
 
   // Role cards
@@ -502,30 +672,50 @@ function triggerEffects(el) {
     setTimeout(() => {
       card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
       card.style.opacity = '1'; card.style.transform = 'none';
-    }, 350 + i * 70);
+    }, 320 + i * 65);
   });
 
   // Contact cards
   el.querySelectorAll('.contact-card').forEach((card, i) => {
-    card.style.cssText = 'opacity:0;transform:translateY(10px)';
+    card.style.cssText = 'opacity:0;transform:translateY(8px)';
     setTimeout(() => {
       card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
       card.style.opacity = '1'; card.style.transform = 'none';
+    }, 380 + i * 70);
+  });
+
+  // Edu modules
+  el.querySelectorAll('.edu-module').forEach((mod, i) => {
+    mod.style.cssText = 'opacity:0;transform:translateY(10px)';
+    setTimeout(() => {
+      mod.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      mod.style.opacity = '1'; mod.style.transform = 'none';
+    }, 300 + i * 90);
+  });
+
+  // DeepNeuron timeline
+  el.querySelectorAll('.dn-tl-item').forEach((item, i) => {
+    item.style.cssText = 'opacity:0;transform:translateX(-8px)';
+    setTimeout(() => {
+      item.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+      item.style.opacity = '1'; item.style.transform = 'none';
     }, 350 + i * 80);
   });
 
-  // Edu cards
-  el.querySelectorAll('.edu-card').forEach((card, i) => {
-    card.style.cssText = 'opacity:0;transform:translateY(12px)';
+  // Project cards
+  el.querySelectorAll('.project-card').forEach((card, i) => {
+    card.style.cssText = 'opacity:0;transform:translateY(14px)';
     setTimeout(() => {
-      card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      card.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
       card.style.opacity = '1'; card.style.transform = 'none';
-    }, 350 + i * 80);
+    }, 280 + i * 90);
   });
 }
 
-// ─── Observer ───
-function initObserver(total) {
+/* ════════════════════════════════════════
+   INTERSECTION OBSERVER
+════════════════════════════════════════ */
+function initObserver() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -535,39 +725,36 @@ function initObserver(total) {
         }
         const idx = parseInt(e.target.dataset.index, 10);
         current = idx;
-        updateCounter(idx + 1, total);
-        updateProgress(idx + 1, total);
+        document.getElementById('slideCounter').textContent =
+          `${String(idx + 1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+        const pct = (idx / Math.max(slides.length - 1, 1)) * 100;
+        document.getElementById('progressBar').style.width = pct + '%';
       }
     });
   }, { threshold: 0.5 });
+
   document.querySelectorAll('.slide').forEach(s => obs.observe(s));
 }
 
-function updateCounter(n, total) {
-  document.getElementById('slideCounter').textContent =
-    `${String(n).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
-}
-
-function updateProgress(n, total) {
-  document.getElementById('progressBar').style.width =
-    `${((n - 1) / Math.max(total - 1, 1)) * 100}%`;
-}
-
-// ─── Keyboard ───
+/* ════════════════════════════════════════
+   KEYBOARD
+════════════════════════════════════════ */
 function initKeyboard() {
   document.addEventListener('keydown', e => {
     const fwd = ['ArrowDown','ArrowRight','Space','PageDown'].includes(e.code);
     const bwd = ['ArrowUp','ArrowLeft','PageUp'].includes(e.code);
     if (fwd || bwd) {
       e.preventDefault();
-      const idx = fwd ? current + 1 : current - 1;
-      if (idx >= 0 && idx < slides.length)
-        document.getElementById(`slide-${idx}`)?.scrollIntoView({ behavior: 'smooth' });
+      const next = fwd ? current + 1 : current - 1;
+      if (next >= 0 && next < slides.length)
+        document.getElementById(`slide-${next}`)?.scrollIntoView({ behavior: 'smooth' });
     }
   });
 }
 
-// ─── Navbar offset ───
+/* ════════════════════════════════════════
+   NAVBAR OFFSET
+════════════════════════════════════════ */
 function initNavbarOffset() {
   const nav = document.getElementById('navbar');
   const set = () => document.documentElement.style.setProperty('--topOffset', nav.offsetHeight + 'px');
@@ -575,7 +762,9 @@ function initNavbarOffset() {
   new ResizeObserver(set).observe(nav);
 }
 
-// ─── PDF Export ───
+/* ════════════════════════════════════════
+   PDF EXPORT
+════════════════════════════════════════ */
 function setupPdfExport() {
   const btn = document.getElementById('exportPdfBtn');
   btn.addEventListener('click', async () => {
@@ -584,20 +773,21 @@ function setupPdfExport() {
       await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
       await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
     } catch {
-      alert('PDF libraries failed to load. Ensure cdnjs.cloudflare.com is reachable.');
+      alert('PDF export libraries could not load. Ensure cdnjs.cloudflare.com is reachable.');
       btn.disabled = false; btn.textContent = 'Export PDF'; return;
     }
+
     document.body.classList.add('exportingPdf');
     document.querySelectorAll('.slide').forEach(s => s.classList.add('is-active'));
     document.querySelectorAll('[data-animate]').forEach(el => {
       el.style.opacity = '1'; el.style.transform = 'none';
     });
+
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ orientation: 'landscape', unit: 'px', format: [1920, 1080] });
-    const bg = document.querySelector('.bg');
+
     for (let i = 0; i < slides.length; i++) {
       const stage = document.createElement('div'); stage.id = 'pdfStage';
-      if (bg) stage.appendChild(bg.cloneNode(true));
       const clone = document.getElementById(`slide-${i}`).cloneNode(true);
       clone.classList.add('is-active');
       clone.querySelectorAll('[data-animate],[style]').forEach(el => {
@@ -605,14 +795,16 @@ function setupPdfExport() {
       });
       stage.appendChild(clone);
       document.body.appendChild(stage);
+
       const canvas = await html2canvas(stage, {
-        backgroundColor: '#050911', scale: 2, useCORS: true,
+        scale: 2, useCORS: true,
         width: 1920, height: 1080, windowWidth: 1920, windowHeight: 1080,
       });
       if (i > 0) pdf.addPage([1920, 1080], 'landscape');
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 1920, 1080);
       document.body.removeChild(stage);
     }
+
     pdf.save('advay-kumar-portfolio.pdf');
     document.body.classList.remove('exportingPdf');
     btn.disabled = false; btn.textContent = 'Export PDF';
@@ -628,12 +820,14 @@ function loadScript(src) {
   });
 }
 
-// ─── Boot ───
+/* ════════════════════════════════════════
+   BOOT
+════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const data = await fetch('./content.json').then(r => r.json());
     buildDeck(data);
   } catch (e) {
-    document.body.innerHTML = `<div style="color:#fff;padding:40px;font-family:monospace">Error loading content.json: ${e.message}</div>`;
+    document.body.innerHTML = `<div style="padding:40px;font-family:monospace;color:red">Error loading content.json: ${e.message}</div>`;
   }
 });
