@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advay Kumar</title>
+  <meta name="description" content="Advay Kumar — Electrical & Computer Systems Engineer, AI/ML, Monash University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Background layers -->
+  <div class="bg">
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Progress bar -->
+  <div id="progressBar" style="width:0%"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" role="navigation" aria-label="Slide navigation">
+    <div class="logo">AK</div>
+    <div class="nav-right">
+      <span id="slideCounter">01 / 09</span>
+      <button id="exportPdfBtn" type="button" aria-label="Export slides as PDF">Export PDF</button>
+    </div>
+  </nav>
+
+  <!-- Slide deck -->
+  <main id="deck" role="main" aria-label="Portfolio slides"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "deckId": "advay-kumar-portfolio",
+    "title": "Advay Kumar",
+    "theme": "dark-engineering"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Advay Kumar",
+      "subheadline": "Electrical & Computer Systems Engineer · AI/ML · Builder",
+      "note": "Monash University | GPA 3.906 | Dean's Honours 2022–2024"
+    },
+    {
+      "type": "section",
+      "headline": "Education",
+      "subheadline": "Monash University — B.E. Electrical & Computer Systems + B.Com · Graduating 2026",
+      "bullets": [
+        "GPA 3.906 / 4.00 · WAM 85.981",
+        "Dean's Honours List: 2022, 2023 & 2024",
+        "Core: ML, AI, Data Structures, Circuits, Power & Energy, Networks",
+        "Commerce: Organisational Behaviour, Strategic Management, Supply Chain"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "ANZ Bank — AI Automation Intern",
+      "subheadline": "Enterprise Architecture · Nov 2025 – Feb 2026",
+      "bullets": [
+        "Built AI-assisted reporting with Copilot & advanced prompt engineering",
+        "Automated BAU processes → saved ~4 hrs/week of manual effort",
+        "Delivered executive-facing Confluence & SharePoint artifacts (HTML/CSS/JS)",
+        "Enhanced governance templates with risk & total cost of ownership analysis",
+        "Presented changes at Architecture Working Group forums"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Monash Robotics — Research Assistant",
+      "subheadline": "Amazon-Funded Study · Feb 2024 – Oct 2025",
+      "bullets": [
+        "Published full paper at HRI 2025 (ACM) — top-tier Human-Robot Interaction venue",
+        "Explored VR & Mixed Reality for remote warehouse error correction",
+        "Built ROS + Unity robot arm control system for Meta Quest 3",
+        "Designed & executed formal user study evaluating VR vs MR effectiveness",
+        "Used ROS TCP Endpoint to bridge headset ↔ Unity ↔ robot"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "AI/DL Lead — Monash DeepNeuron",
+      "subheadline": "Student AI & HPC Engineering Team · June 2023 – July 2024",
+      "bullets": [
+        "Led AI, ML & Deep Learning projects across the team",
+        "Recruited, trained & mentored AI/DL members",
+        "Liaised with professors, industry & project supervisors",
+        "Evaluated and sourced new projects for the team pipeline"
+      ]
+    },
+    {
+      "type": "beforeAfter",
+      "headline": "Research That Ships",
+      "left": {
+        "title": "Microfluidics — Sperm Analysis",
+        "bullets": [
+          "Optimised ResNet-34 model for sperm cell selection",
+          "90% classification accuracy achieved",
+          "Potential adoption by Monash IVF from 2026",
+          "Direct real-world medical impact"
+        ]
+      },
+      "right": {
+        "title": "Bio-Acoustics — Species Monitoring",
+        "bullets": [
+          "Multi-head 2-way LSTM for audio classification",
+          "80% accuracy on endangered bird species",
+          "Reduced analysis time: 12 hrs → 30 mins",
+          "Supporting ecosystem researchers worldwide"
+        ]
+      }
+    },
+    {
+      "type": "content",
+      "headline": "Awards & Recognition",
+      "subheadline": "Competing & winning at a national level",
+      "bullets": [
+        "State Finalist — AIIA Innovation Awards 2022 (Computer Vision / Mask Detection)",
+        "Australian Defence Force 2021 Future Innovators Award",
+        "Motorola Solutions Leader Scholarship 2023",
+        "Achieving and Achieving Potential Access Scholarship 2022",
+        "Parliamentary AI Inquiry presenter — House Standing Committee on Education 2023"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Technical Skills",
+      "subheadline": "Full-stack engineering across hardware, software & AI",
+      "bullets": [
+        "Languages: Python, C++, C, C#, HTML/CSS, SQL, MATLAB, Verilog, VHDL, R",
+        "Frameworks: ROS, Flutter/Dart, Unity, MoveIt, Assembly (RISC-V)",
+        "Tools: Git, PyCharm, Jupyter, VSCode, MongoDB, Android Studio, LTspice",
+        "Management: Jira, Gantt, Kanban, Confluence, SharePoint"
+      ]
+    },
+    {
+      "type": "closing",
+      "headline": "Let's Build Something",
+      "subheadline": "Open to graduate roles, research collaborations & meaningful projects",
+      "bullets": [
+        "advaykumar2004@gmail.com",
+        "(+61) 410 377 289",
+        "LinkedIn: Advay Kumar",
+        "GitHub: AKoder123"
+      ],
+      "note": "https://akoder123.github.io/Advay-Personal-Website/"
+    }
+  ]
+}
