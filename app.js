@@ -320,7 +320,7 @@ function renderDeepNeuron(slide) {
         </div>
 
         <div>
-          <div class="tech-section-title" style="color:var(--slate-400); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px;">Team History</div>
+          <div class="tech-section-title" style="color:var(--slate-400); font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px;">Team History</div>
           <div class="dn-timeline">
             <div class="dn-tl-item">
               <div class="dn-tl-dot">01</div>
